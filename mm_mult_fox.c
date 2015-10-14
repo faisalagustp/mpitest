@@ -60,43 +60,36 @@ int main (int argc, char *argv[])
   SetUp_Mesh(&grid);
 
 
+
+
   /* Reading Input */
+
   if (grid.MyRank == Root){
-     if ((fp = fopen ("./data/mdata1.inp", "r")) == NULL){
-			MatrixA_FileStatus = 0;
-     }
 
-	  if(MatrixA_FileStatus != 0) {
-     		fscanf(fp, "%d %d", &NoofRows_A, &NoofCols_A);
-     		Matrix_Size[0] = NoofRows_A;
-     		Matrix_Size[1] = NoofCols_A;
+    NoofRows_A = 8;
+    NoofCols_A = 8;
+    NoofRows_B = 8;
+    NoofCols_B = 8;
 
-     		Matrix_A = (float **) malloc (NoofRows_A * sizeof(float *));
-     		for (irow = 0; irow < NoofRows_A; irow++){
-		  		Matrix_A[irow] = (float *) malloc(NoofCols_A * sizeof(float));
-        		for (icol = 0; icol < NoofCols_A; icol++)
-	        		fscanf(fp, "%f", &Matrix_A[irow][icol]);
-     		}
-     		fclose(fp);
-	 }
+    Matrix_Size[0] = NoofRows_A;
+    Matrix_Size[1] = NoofCols_A;
+    Matrix_Size[2] = NoofRows_B;
+    Matrix_Size[3] = NoofCols_B;
 
-     if((fp = fopen ("./data/mdata2.inp", "r")) == NULL){
-			MatrixB_FileStatus = 0;
-     }
 
-	  if(MatrixB_FileStatus != 0) {
-     		fscanf(fp, "%d %d", &NoofRows_B, &NoofCols_B);
-     		Matrix_Size[2] = NoofRows_B;
-     		Matrix_Size[3] = NoofCols_B;
+    Matrix_A = (float **) malloc (NoofRows_A * sizeof(float *));
+    for (irow = 0; irow < NoofRows_A; irow++){
+     Matrix_A[irow] = (float *) malloc(NoofCols_A * sizeof(float));
+       for (icol = 0; icol < NoofCols_A; icol++)
+         Matrix_A[irow][icol]=1;
+    }
 
-     		Matrix_B = (float **) malloc (NoofRows_B * sizeof(float *));
-     		for(irow = 0; irow < NoofRows_B; irow++){
-		  		Matrix_B[irow] = (float *) malloc(NoofCols_B * sizeof(float *));
-        		for(icol = 0; icol < NoofCols_B; icol++)
-		     		fscanf(fp, "%f", &Matrix_B[irow][icol]);
-     		}
-     		fclose(fp);
-	  }
+    Matrix_B = (float **) malloc (NoofRows_B * sizeof(float *));
+    for(irow = 0; irow < NoofRows_B; irow++){
+     Matrix_B[irow] = (float *) malloc(NoofCols_B * sizeof(float *));
+       for(icol = 0; icol < NoofCols_B; icol++)
+        Matrix_B[irow][icol] = 1;
+    }
 
   } /* MyRank == Root */
 

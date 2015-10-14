@@ -7,9 +7,9 @@ mpicc -o mv2 mv_mult_blkstp.c;
 mpicc -o mm1 mpi_mm.c;
 mpicc -o mm2 mm_mult_fox.c;
 
-sbatch vv1;
-sbatch vv2;
-sbatch mv1;
-sbatch mv2;
-sbatch mm1;
-sbatch mm2;
+sbatch vv1.t;
+sbatch vv2.t;
+sbatch mv1.t;
+sbatch mv2.t;
+sbatch mm1.t;
+sbatch mm2.t;

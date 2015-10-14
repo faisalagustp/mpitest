@@ -63,8 +63,8 @@ int main(int argc, char** argv)
 
   if(MyRank == 0)
   {
-    NoofCols = 8;
-    NoofRows = 8;
+    NoofCols = 1024;
+    NoofRows = 1024;
 
     NoofRows_Bloc = NoofRows/root_p;
   	NoofCols_Bloc = NoofCols/root_p;
@@ -80,7 +80,7 @@ int main(int argc, char** argv)
 
 
     //creating vector
-    VectorSize = 8;
+    VectorSize = 1024;
     Vector = (float*)malloc(VectorSize*sizeof(float));
     for(index = 0; index<VectorSize; index++)
          Vector[index]=1;

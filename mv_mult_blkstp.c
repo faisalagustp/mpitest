@@ -52,8 +52,8 @@ int main(int argc, char** argv)
   {
     //creating matrix
 
-    NoofCols = 8;
-    NoofRows = 8;
+    NoofCols = 1024;
+    NoofRows = 1024;
 
     Matrix = (float **)malloc(NoofRows*sizeof(float *));
     for(irow=0 ;irow<NoofRows; irow++){
@@ -73,7 +73,7 @@ int main(int argc, char** argv)
     }
 
     //creating vector
-    VectorSize = 8;
+    VectorSize = 1024;
     Vector = (float*)malloc(VectorSize*sizeof(float));
     for(index = 0; index<VectorSize; index++)
          Vector[index]=1;

@@ -21,10 +21,11 @@
 
 
 #include <stdio.h>
+#include <stdlib.h>
 #include <math.h>
 #include <mpi.h>
 
-main(int argc, char** argv)
+int main(int argc, char** argv)
 {
 
   /* .......Variables Initialisation ......*/
@@ -76,7 +77,7 @@ main(int argc, char** argv)
       }
     }
 
-    
+
 
     //creating vector
     VectorSize = 8;
